@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - Exam Alchemy</title>
+    <!-- Link to your existing CSS file -->
+    <link rel="stylesheet" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <!-- ======== TOP NAVIGATION BAR ======== -->
+    <header class="top-nav">
+        <div class="nav-left">
+            <button id="menu-toggle" class="nav-icon-btn"><i class='bx bx-menu'></i></button>
+            <span class="logo-text"><i class='bx bxs-flask'></i> Exam Alchemy</span>
+        </div>
+        <div class="nav-right">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <button class="nav-icon-btn"><i class='bx bx-bell'></i></button>
+            <!-- Placeholder profile pic -->
+            <img src="https://i.pravatar.cc/150?img=3" alt="User Profile" class="profile-pic">
+        </div>
+    </header>
+
+    <!-- ======== COLLAPSIBLE SIDEBAR (Student Version) ======== -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <span class="logo-text-sidebar"><i class='bx bxs-flask'></i> Exam Alchemy</span>
+        </div>
+        <nav class="sidebar-nav">
+            <!-- Student Navigation Links -->
+            <a href="student.html" class="nav-item active">
+                <i class='bx bxs-dashboard'></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="#" class="nav-item"> <!-- Link to PYQ page later -->
+                <i class='bx bxs-book-open'></i>
+                <span>Previous Year Questions</span>
+            </a>
+            <a href="#" class="nav-item"> <!-- Link to Sample Papers page later -->
+                <i class='bx bxs-file-blank'></i>
+                <span>Sample Papers</span>
+            </a>
+            <a href="#" class="nav-item"> <!-- Link to Tests page later -->
+                <i class='bx bx-clipboard'></i>
+                <span>Practice Tests</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="index.html" class="nav-item"> <!-- Link back to landing/login -->
+                <i class='bx bx-log-out'></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- ======== MAIN CONTENT AREA ======== -->
+    <main class="content" id="main-content">
+        
+        <!-- Page Header -->
+        <div class="page-header animate-fade-in">
+            <div>
+                <h1>Welcome back, Student! 📚</h1>
+                <p class="text-muted mt-2">Ready to ace your exams? Let's get started.</p>
+            </div>
+            <!-- Optional: Add buttons if needed -->
+        </div>
+
+        <!-- Content Sections -->
+        <div class="student-dashboard-content">
+
+            <!-- Quick Links -->
+            <section>
+                <div class="grid grid-cols-3">
+                    <a href="#" class="quick-link-card-link"> <!-- Link to PYQ page later -->
+                        <div class="card card-hover animate-fade-up" style="animation-delay: 0ms;">
+                            <div class="card-header">
+                                <div class="card-icon-wrapper">
+                                    <div class="card-icon-bg bg-primary-light">
+                                        <i class='bx bxs-book-open text-primary'></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="card-title-sm">Previous Year Questions</h3>
+                                        <p class="text-muted text-sm">Access past exam papers</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="papers.html" class="quick-link-card-link"> <!-- Link to Sample Papers page later -->
+                        <div class="card card-hover animate-fade-up" style="animation-delay: 100ms;">
+                            <div class="card-header">
+                                <div class="card-icon-wrapper">
+                                    <div class="card-icon-bg bg-primary-light">
+                                        <i class='bx bxs-file-blank text-primary'></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="card-title-sm">Sample Papers</h3>
+                                        <p class="text-muted text-sm">Practice with sample tests</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                     <a href="tests.html" class="quick-link-card-link"> <!-- Link to Tests page later -->
+                        <div class="card card-hover animate-fade-up" style="animation-delay: 200ms;">
+                            <div class="card-header">
+                                <div class="card-icon-wrapper">
+                                    <div class="card-icon-bg bg-primary-light">
+                                        <i class='bx bx-clipboard text-primary'></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="card-title-sm">Take a Test</h3>
+                                        <p class="text-muted text-sm">Start practice mode</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Available Subjects -->
+            <section>
+                <h2 class="section-title">Available Subjects</h2>
+                <div class="grid grid-cols-3">
+                    <!-- Subject Cards - Repeat this block for each subject -->
+                    <div class="card subject-card card-hover animate-fade-up" style="animation-delay: 300ms;">
+                        <div class="subject-card-bg bg-gradient-blue"></div>
+                        <div class="card-header relative">
+                            <div class="subject-icon">📐</div>
+                            <h3 class="card-title-sm">Mathematics</h3>
+                            <p class="text-muted text-sm">12 papers available</p>
+                        </div>
+                    </div>
+                    <div class="card subject-card card-hover animate-fade-up" style="animation-delay: 400ms;">
+                        <div class="subject-card-bg bg-gradient-purple"></div>
+                        <div class="card-header relative">
+                            <div class="subject-icon">⚛️</div>
+                            <h3 class="card-title-sm">Physics</h3>
+                            <p class="text-muted text-sm">8 papers available</p>
+                        </div>
+                    </div>
+                    <div class="card subject-card card-hover animate-fade-up" style="animation-delay: 500ms;">
+                        <div class="subject-card-bg bg-gradient-green"></div>
+                        <div class="card-header relative">
+                            <div class="subject-icon">🧪</div>
+                            <h3 class="card-title-sm">Chemistry</h3>
+                            <p class="text-muted text-sm">10 papers available</p>
+                        </div>
+                    </div>
+                     <div class="card subject-card card-hover animate-fade-up" style="animation-delay: 600ms;">
+                        <div class="subject-card-bg bg-gradient-orange"></div>
+                        <div class="card-header relative">
+                            <div class="subject-icon">💻</div>
+                            <h3 class="card-title-sm">Computer Science</h3>
+                            <p class="text-muted text-sm">15 papers available</p>
+                        </div>
+                    </div>
+                     <div class="card subject-card card-hover animate-fade-up" style="animation-delay: 700ms;">
+                        <div class="subject-card-bg bg-gradient-pink"></div>
+                        <div class="card-header relative">
+                            <div class="subject-icon">🧬</div>
+                            <h3 class="card-title-sm">Biology</h3>
+                            <p class="text-muted text-sm">7 papers available</p>
+                        </div>
+                    </div>
+                     <div class="card subject-card card-hover animate-fade-up" style="animation-delay: 800ms;">
+                        <div class="subject-card-bg bg-gradient-yellow"></div>
+                        <div class="card-header relative">
+                            <div class="subject-icon">📚</div>
+                            <h3 class="card-title-sm">English</h3>
+                            <p class="text-muted text-sm">9 papers available</p>
+                        </div>
+                    </div>
+                    <!-- End Subject Card Block -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Link your main JavaScript file (for sidebar toggle) -->
+    <script src="scripts/main.js"></script>
+</body>
+</html>

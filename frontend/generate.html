@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Paper - Exam Alchemy</title>
+    <!-- Link to your existing CSS file -->
+    <link rel="stylesheet" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <!-- ======== TOP NAVIGATION BAR (Teacher Version) ======== -->
+    <header class="top-nav">
+        <div class="nav-left">
+            <button id="menu-toggle" class="nav-icon-btn"><i class='bx bx-menu'></i></button>
+            <span class="logo-text"><i class='bx bxs-flask'></i> Exam Alchemy</span>
+        </div>
+        <div class="nav-right">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <button class="nav-icon-btn"><i class='bx bx-bell'></i></button>
+            <img src="https://i.pravatar.cc/150?img=12" alt="User Profile" class="profile-pic"> <!-- Teacher profile pic -->
+        </div>
+    </header>
+
+    <!-- ======== COLLAPSIBLE SIDEBAR (Teacher Version - Update Active Link) ======== -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <span class="logo-text-sidebar"><i class='bx bxs-flask'></i> Exam Alchemy</span>
+        </div>
+        <nav class="sidebar-nav">
+             <a href="dashboard.html" class="nav-item"> <!-- Link to Teacher Dashboard -->
+                <i class='bx bxs-dashboard'></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="#" class="nav-item"> <!-- Link to Upload -->
+                <i class='bx bx-upload'></i>
+                <span>Upload Question Bank</span>
+            </a>
+            <a href="generate.html" class="nav-item active"> <!-- Active -->
+                <i class='bx bx-atom'></i>
+                <span>Generate Paper</span>
+            </a>
+            <a href="extract.html" class="nav-item"> <!-- Link to Extract -->
+                <i class='bx bx-scan'></i>
+                <span>AI Extract from PDF</span>
+            </a>
+            <a href="analytics.html" class="nav-item"> <!-- Link to Analytics -->
+                <i class='bx bx-bar-chart-alt-2'></i>
+                <span>View Analytics</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="index.html" class="nav-item">
+                <i class='bx bx-log-out'></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- ======== MAIN CONTENT AREA ======== -->
+    <main class="content" id="main-content">
+        
+        <!-- Page Header -->
+        <div class="page-header animate-fade-in">
+            <div>
+                <h1>Generate Question Paper</h1>
+                <p class="text-muted mt-2">Create AI-powered exam papers with custom parameters</p>
+            </div>
+        </div>
+
+        <!-- Content Grid -->
+        <div class="generate-content grid grid-cols-2">
+            <!-- Configuration Form -->
+            <div class="card animate-fade-up">
+                <div class="card-header">
+                    <h2 class="card-title">Paper Configuration</h2>
+                    <p class="text-muted text-sm">Set up your exam parameters</p>
+                </div>
+                <div class="card-content space-y-6">
+                    <div class="form-group space-y-2">
+                        <label>Subject</label>
+                        <select class="form-select">
+                            <option value="" disabled selected>Select subject</option>
+                            <option value="math">Mathematics</option>
+                            <option value="physics">Physics</option>
+                            <option value="chemistry">Chemistry</option>
+                            <option value="cs">Computer Science</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group space-y-2">
+                        <label>Total Marks</label>
+                        <input type="number" class="form-input" placeholder="e.g., 100">
+                    </div>
+
+                    <div class="form-group space-y-4">
+                        <label>Difficulty Distribution</label>
+                        <div class="space-y-3">
+                            <div>
+                                <div class="flex-between mb-2">
+                                    <span class="text-sm">Easy</span>
+                                    <span class="text-sm font-medium" id="easy-value">30%</span>
+                                </div>
+                                <input type="range" id="easy-slider" value="30" max="100" step="5" class="slider">
+                            </div>
+                            <div>
+                                <div class="flex-between mb-2">
+                                    <span class="text-sm">Medium</span>
+                                    <span class="text-sm font-medium" id="medium-value">50%</span>
+                                </div>
+                                <input type="range" id="medium-slider" value="50" max="100" step="5" class="slider">
+                            </div>
+                            <div>
+                                <div class="flex-between mb-2">
+                                    <span class="text-sm">Hard</span>
+                                    <span class="text-sm font-medium" id="hard-value">20%</span>
+                                </div>
+                                <input type="range" id="hard-slider" value="20" max="100" step="5" class="slider">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group space-y-2">
+                        <label>Question Pattern</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="pattern" value="mcq" id="mcq">
+                                <span>Full MCQ</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="pattern" value="mixed" id="mixed" checked>
+                                <span>Half MCQ & Half Descriptive</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="pattern" value="custom" id="custom">
+                                <span>Custom Mix</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary btn-glow w-full" id="generate-button">
+                        <span class="flex-gap" id="generate-button-content">
+                             <i class='bx bxs-magic-wand'></i> <!-- Sparkles -->
+                            Generate Paper
+                        </span>
+                         <span class="flex-gap hidden" id="generating-indicator">
+                            <i class='bx bx-loader-alt bx-spin'></i> <!-- Using spinner -->
+                            Generating...
+                        </span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Preview/Results -->
+            <div class="card animate-fade-up" style="animation-delay: 100ms;">
+                <div class="card-header">
+                    <h2 class="card-title">Paper Preview</h2>
+                    <p class="text-muted text-sm">Generated exam paper will appear here</p>
+                </div>
+                <div class="card-content">
+                    <!-- Placeholder -->
+                    <div class="results-placeholder flex-center h-64" id="preview-placeholder">
+                        <div class="text-center">
+                             <i class='bx bxs-file-blank results-placeholder-icon'></i>
+                            <p>Configure and generate a paper to see preview</p>
+                        </div>
+                    </div>
+
+                    <!-- Generated Content -->
+                    <div class="space-y-4 hidden" id="preview-content">
+                        <div class="preview-box">
+                            <h3 class="font-semibold text-lg">Mathematics Final Exam</h3>
+                            <p class="text-sm text-muted">Total Marks: 100 | Duration: 3 Hours</p>
+                            
+                            <div class="space-y-2 mt-4">
+                                <p class="font-medium">Section A - Multiple Choice (30 marks)</p>
+                                <p class="text-sm text-muted">1. What is the derivative of x²?</p>
+                                <p class="text-sm text-muted">2. Solve: 2x + 5 = 15</p>
+                                <p class="text-sm text-muted">3. Find the area of a circle...</p>
+                                
+                                <p class="font-medium mt-4">Section B - Descriptive (70 marks)</p>
+                                <p class="text-sm text-muted">4. Explain the concept of limits...</p>
+                                <p class="text-sm text-muted">5. Prove the Pythagorean theorem...</p>
+                            </div>
+                        </div>
+
+                        <div class="flex-gap">
+                            <button class="btn btn-outline flex-1">
+                                <i class='bx bx-show-alt'></i> <!-- Eye icon -->
+                                Preview
+                            </button>
+                            <button class="btn btn-primary btn-glow flex-1">
+                                <i class='bx bxs-download'></i>
+                                Download PDF
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Link JS Files -->
+    <script src="scripts/main.js"></script> <!-- For sidebar toggle -->
+    <script src="scripts/generate.js"></script> <!-- New script for this page -->
+</body>
+</html>

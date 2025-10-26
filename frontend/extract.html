@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Extract - Exam Alchemy</title>
+    <!-- Link to your existing CSS file -->
+    <link rel="stylesheet" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <!-- ======== TOP NAVIGATION BAR (Teacher Version) ======== -->
+    <header class="top-nav">
+        <div class="nav-left">
+            <button id="menu-toggle" class="nav-icon-btn"><i class='bx bx-menu'></i></button>
+            <span class="logo-text"><i class='bx bxs-flask'></i> Exam Alchemy</span>
+        </div>
+        <div class="nav-right">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <button class="nav-icon-btn"><i class='bx bx-bell'></i></button>
+            <img src="https://i.pravatar.cc/150?img=12" alt="User Profile" class="profile-pic"> <!-- Teacher profile pic -->
+        </div>
+    </header>
+
+    <!-- ======== COLLAPSIBLE SIDEBAR (Teacher Version - Update Active Link) ======== -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <span class="logo-text-sidebar"><i class='bx bxs-flask'></i> Exam Alchemy</span>
+        </div>
+        <nav class="sidebar-nav">
+             <a href="dashboard.html" class="nav-item"> <!-- Link to Teacher Dashboard -->
+                <i class='bx bxs-dashboard'></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="#" class="nav-item"> <!-- Link to Upload -->
+                <i class='bx bx-upload'></i>
+                <span>Upload Question Bank</span>
+            </a>
+            <a href="#" class="nav-item"> <!-- Link to Generate -->
+                <i class='bx bx-atom'></i>
+                <span>Generate Paper</span>
+            </a>
+            <a href="extract.html" class="nav-item active"> <!-- Active -->
+                <i class='bx bx-scan'></i> <!-- Changed icon -->
+                <span>AI Extract from PDF</span>
+            </a>
+            <a href="analytics.html" class="nav-item"> <!-- Link to Analytics -->
+                <i class='bx bx-bar-chart-alt-2'></i>
+                <span>View Analytics</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="index.html" class="nav-item">
+                <i class='bx bx-log-out'></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- ======== MAIN CONTENT AREA ======== -->
+    <main class="content" id="main-content">
+        
+        <!-- Page Header -->
+        <div class="page-header animate-fade-in">
+            <div>
+                <h1>AI Question Extraction</h1>
+                <p class="text-muted mt-2">Extract questions from PDFs using AI</p>
+            </div>
+        </div>
+
+        <!-- Content Sections -->
+        <div class="extract-content">
+            <div class="grid grid-cols-2">
+                <!-- Upload Section -->
+                <div class="card animate-fade-up">
+                    <div class="card-header">
+                        <h2 class="card-title flex-gap">
+                            <i class='bx bxs-magic-wand text-primary animate-glow'></i> <!-- Sparkles icon -->
+                            AI-Powered Extraction
+                        </h2>
+                        <p class="text-muted text-sm">Upload a PDF and let AI extract questions automatically</p>
+                    </div>
+                    <div class="card-content space-y-4">
+                        <div class="upload-area">
+                            <i class='bx bx-cloud-upload upload-icon'></i>
+                            <p class="text-sm text-muted mb-2">
+                                Drop PDF file here or click to browse
+                            </p>
+                            <p class="text-xs text-muted mb-4">
+                                Maximum file size: 10MB
+                            </p>
+                            <input
+                                type="file"
+                                accept=".pdf"
+                                class="upload-input"
+                                id="pdf-upload"
+                            />
+                            <!-- Simple label for the input -->
+                             <label for="pdf-upload" class="btn btn-secondary">Browse Files</label>
+                        </div>
+                        
+                        <button class="btn btn-primary btn-glow w-full" id="extract-button">
+                            <span class="flex-gap" id="extract-button-content">
+                                <i class='bx bxs-magic-wand'></i>
+                                Start AI Extraction
+                            </span>
+                            <span class="flex-gap hidden" id="extracting-indicator">
+                                <i class='bx bx-loader-alt bx-spin'></i>
+                                Extracting Questions...
+                            </span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Results Section -->
+                <div class="card animate-fade-up" style="animation-delay: 100ms;">
+                    <div class="card-header">
+                        <h2 class="card-title">Extraction Results</h2>
+                        <p class="text-muted text-sm">AI-extracted questions will appear here</p>
+                    </div>
+                    <div class="card-content">
+                        <!-- Placeholder: shown initially -->
+                        <div class="results-placeholder flex-center h-64" id="results-placeholder">
+                            <div class="text-center">
+                                <i class='bx bxs-magic-wand results-placeholder-icon'></i>
+                                <p>Upload a PDF to start extraction</p>
+                            </div>
+                        </div>
+
+                        <!-- Results: shown after extraction -->
+                        <div class="results-content space-y-4 hidden" id="results-content">
+                            <div class="success-message">
+                                <p class="text-sm font-medium text-green mb-1">✓ Extraction Complete</p>
+                                <p class="text-xs text-muted">Successfully extracted 25 questions</p> <!-- Example -->
+                            </div>
+
+                            <div class="space-y-3 extracted-questions-list">
+                                <!-- Example Extracted Question -->
+                                <div class="question-item">
+                                    <p class="text-sm">1. What is the derivative of sin(x)?</p>
+                                    <div class="flex-gap mt-2">
+                                        <span class="tag tag-primary">Medium</span>
+                                        <span class="tag tag-secondary">Mathematics</span>
+                                    </div>
+                                </div>
+                                <div class="question-item">
+                                    <p class="text-sm">2. Explain Newton's First Law of Motion</p>
+                                     <div class="flex-gap mt-2">
+                                        <span class="tag tag-primary">Easy</span>
+                                        <span class="tag tag-secondary">Physics</span>
+                                    </div>
+                                </div>
+                                <div class="question-item">
+                                    <p class="text-sm">3. Calculate the area under the curve y = x² from 0 to 1</p>
+                                      <div class="flex-gap mt-2">
+                                        <span class="tag tag-primary">Hard</span>
+                                        <span class="tag tag-secondary">Mathematics</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-primary btn-glow w-full">
+                                Save to Question Bank
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Section -->
+            <section class="card animate-fade-up mt-8" style="animation-delay: 200ms;">
+                <div class="card-header">
+                    <h2 class="card-title">AI Extraction Features</h2>
+                </div>
+                <div class="card-content">
+                    <div class="grid grid-cols-3">
+                        <div class="feature-box">
+                            <i class='bx bxs-magic-wand feature-icon'></i>
+                            <h3 class="font-semibold mb-1">Smart Recognition</h3>
+                            <p class="text-sm text-muted">Automatically identifies questions and answers</p>
+                        </div>
+                        <div class="feature-box">
+                            <i class='bx bxs-file-blank feature-icon'></i>
+                            <h3 class="font-semibold mb-1">Format Preservation</h3>
+                            <p class="text-sm text-muted">Maintains original formatting and structure</p>
+                        </div>
+                        <div class="feature-box">
+                             <i class='bx bx-bar-chart-alt-2 feature-icon'></i>
+                            <h3 class="font-semibold mb-1">Auto Classification</h3>
+                            <p class="text-sm text-muted">Assigns difficulty and subject automatically</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Link JS Files -->
+    <script src="scripts/main.js"></script> <!-- For sidebar toggle -->
+    <script src="scripts/extract.js"></script> <!-- New script for this page -->
+</body>
+</html>

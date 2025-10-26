@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Questions - Exam Alchemy</title>
+    <!-- Link to your existing CSS file -->
+    <link rel="stylesheet" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <!-- ======== TOP NAVIGATION BAR (Teacher Version) ======== -->
+    <header class="top-nav">
+        <div class="nav-left">
+            <button id="menu-toggle" class="nav-icon-btn"><i class='bx bx-menu'></i></button>
+            <span class="logo-text"><i class='bx bxs-flask'></i> Exam Alchemy</span>
+        </div>
+        <div class="nav-right">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <button class="nav-icon-btn"><i class='bx bx-bell'></i></button>
+            <img src="https://i.pravatar.cc/150?img=12" alt="User Profile" class="profile-pic"> <!-- Teacher profile pic -->
+        </div>
+    </header>
+
+    <!-- ======== COLLAPSIBLE SIDEBAR (Teacher Version - Update Active Link) ======== -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <span class="logo-text-sidebar"><i class='bx bxs-flask'></i> Exam Alchemy</span>
+        </div>
+        <nav class="sidebar-nav">
+             <a href="dashboard.html" class="nav-item"> <!-- Link to Teacher Dashboard -->
+                <i class='bx bxs-dashboard'></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="upload.html" class="nav-item active"> <!-- Active -->
+                <i class='bx bx-upload'></i>
+                <span>Upload Question Bank</span>
+            </a>
+            <a href="generate.html" class="nav-item"> <!-- Link to Generate -->
+                <i class='bx bx-atom'></i>
+                <span>Generate Paper</span>
+            </a>
+            <a href="extract.html" class="nav-item"> <!-- Link to Extract -->
+                <i class='bx bx-scan'></i>
+                <span>AI Extract from PDF</span>
+            </a>
+            <a href="analytics.html" class="nav-item"> <!-- Link to Analytics -->
+                <i class='bx bx-bar-chart-alt-2'></i>
+                <span>View Analytics</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="index.html" class="nav-item">
+                <i class='bx bx-log-out'></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- ======== MAIN CONTENT AREA ======== -->
+    <main class="content" id="main-content">
+        
+        <!-- Page Header -->
+        <div class="page-header animate-fade-in">
+            <div>
+                <h1>Upload Question Bank</h1>
+                <p class="text-muted mt-2">Upload questions to build your exam database</p>
+            </div>
+        </div>
+
+        <!-- Content Sections -->
+        <div class="upload-content">
+            <div class="grid grid-cols-2">
+                <!-- Upload Section -->
+                <div class="card animate-fade-up">
+                    <div class="card-header">
+                        <h2 class="card-title">Upload File</h2>
+                        <p class="text-muted text-sm">Drag and drop or click to upload</p>
+                    </div>
+                    <div class="card-content space-y-4">
+                        <div class="upload-area upload-area-alt">
+                            <i class='bx bx-cloud-upload upload-icon'></i>
+                            <p class="text-sm text-muted mb-2">
+                                Drop files here or click to browse
+                            </p>
+                            <p class="text-xs text-muted">
+                                Supports: CSV, XLSX, JSON
+                            </p>
+                             <input
+                                type="file"
+                                accept=".csv,.xlsx,.json"
+                                class="upload-input mt-4"
+                                id="question-file-upload"
+                            />
+                            <!-- Simple label for the input -->
+                             <label for="question-file-upload" class="btn btn-secondary mt-4">Browse Files</label>
+                        </div>
+                        <button class="btn btn-primary btn-glow w-full" id="process-button" disabled>
+                            Process Upload
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Metadata Section -->
+                <div class="card animate-fade-up" style="animation-delay: 100ms;">
+                    <div class="card-header">
+                        <h2 class="card-title">Question Metadata</h2>
+                        <p class="text-muted text-sm">Set default properties for uploaded questions</p>
+                    </div>
+                    <div class="card-content space-y-4">
+                         <div class="form-group space-y-2">
+                            <label>Subject</label>
+                            <select class="form-select">
+                                <option value="" disabled selected>Select subject</option>
+                                <option value="math">Mathematics</option>
+                                <option value="physics">Physics</option>
+                                <option value="chemistry">Chemistry</option>
+                                <option value="cs">Computer Science</option>
+                            </select>
+                        </div>
+                        <div class="form-group space-y-2">
+                            <label>Default Difficulty</label>
+                             <select class="form-select">
+                                <option value="" disabled selected>Select difficulty</option>
+                                <option value="easy">Easy</option>
+                                <option value="medium">Medium</option>
+                                <option value="hard">Hard</option>
+                            </select>
+                        </div>
+                         <div class="form-group space-y-2">
+                            <label>Marks per Question</label>
+                            <input type="number" class="form-input" placeholder="e.g., 2">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Preview Table (Initially Hidden) -->
+            <section class="card animate-fade-up mt-8 hidden" id="preview-section" style="animation-delay: 200ms;">
+                 <div class="card-header">
+                    <h2 class="card-title">Question Preview</h2>
+                    <p class="text-muted text-sm">Review and edit uploaded questions</p>
+                </div>
+                <div class="card-content">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Question</th>
+                                <th>Difficulty</th>
+                                <th>Subject</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Sample Row 1 -->
+                            <tr>
+                                <td>1</td>
+                                <td class="question-text">What is the capital of France?</td>
+                                <td><span class="badge badge-green">Easy</span></td>
+                                <td>Geography</td>
+                                <td><button class="btn btn-ghost btn-sm">Edit</button></td>
+                            </tr>
+                             <!-- Sample Row 2 -->
+                            <tr>
+                                <td>2</td>
+                                <td class="question-text">Explain Newton's Second Law</td>
+                                <td><span class="badge badge-yellow">Medium</span></td>
+                                <td>Physics</td>
+                                <td><button class="btn btn-ghost btn-sm">Edit</button></td>
+                            </tr>
+                             <!-- Sample Row 3 -->
+                            <tr>
+                                <td>3</td>
+                                <td class="question-text">Solve: ∫x²dx</td>
+                                <td><span class="badge badge-red">Hard</span></td>
+                                <td>Mathematics</td>
+                                <td><button class="btn btn-ghost btn-sm">Edit</button></td>
+                            </tr>
+                            <!-- More rows will be added here by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Link JS Files -->
+    <script src="scripts/main.js"></script> <!-- For sidebar toggle -->
+    <script src="scripts/upload.js"></script> <!-- New script for this page -->
+</body>
+</html>

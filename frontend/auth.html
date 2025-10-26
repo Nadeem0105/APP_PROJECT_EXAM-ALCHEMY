@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Sign Up - Exam Alchemy</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body class="auth-body">
+
+    <nav class="auth-nav">
+        <button class="btn btn-ghost" onclick="history.back()">
+            <i class='bx bx-arrow-back'></i>
+            Back
+        </button>
+        <div class="flex-gap">
+            <a href="index.html" class="btn btn-ghost">
+                <i class='bx bxs-home'></i>
+                Home
+            </a>
+            <a href="about.html" class="btn btn-ghost">
+                <i class='bx bxs-info-circle'></i>
+                About
+            </a>
+        </div>
+    </nav>
+
+    <div class="card auth-card animate-fade-in">
+        <div class="card-header text-center">
+            <div class="auth-title">
+                <i class='bx bxs-flask text-primary'></i>
+                <h1 class="gradient-text">Exam Alchemy</h1>
+                <i class='bx bxs-sparkles text-accent'></i>
+            </div>
+            <h2>Welcome Back</h2>
+            <p class="text-muted">Sign in to your account or create a new one</p>
+        </div>
+        <div class="card-content">
+            <div class="form-group">
+                <label>I am a:</label>
+                <div class="flex-gap">
+                    <button type="button" class="btn btn-primary flex-1" id="role-student">
+                        Student
+                    </button>
+                    <button type="button" class="btn btn-outline flex-1" id="role-teacher">
+                        Teacher
+                    </button>
+                </div>
+            </div>
+
+            <div class="tabs">
+                <div class="tabs-list">
+                    <button class="tabs-trigger active" data-tab="login">Login</button>
+                    <button class="tabs-trigger" data-tab="signup">Sign Up</button>
+                </div>
+                
+                <div class="tabs-content active" id="login-tab">
+                    <form id="login-form" class="form-stack">
+                        <div class="form-group">
+                            <label for="login-email">Email</label>
+                            <input id="login-email" type="email" placeholder="you@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="login-password">Password</label>
+                            <input id="login-password" type="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-glow w-full" id="login-button">
+                            Sign In
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="tabs-content" id="signup-tab">
+                    <form id="signup-form" class="form-stack">
+                        <div class="form-group">
+                            <label for="signup-name">Full Name</label>
+                            <input id="signup-name" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-email">Email</label>
+                            <input id="signup-email" type="email" placeholder="you@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-password">Password</label>
+                            <input id="signup-password" type="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-glow w-full" id="signup-button">
+                            Create Account
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="scripts/api.js"></script>
+    <script src="scripts/auth.js"></script>
+</body>
+</html>

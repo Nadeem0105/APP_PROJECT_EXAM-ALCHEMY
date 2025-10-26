@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics - Exam Alchemy</title>
+    <!-- Link to your existing CSS file -->
+    <link rel="stylesheet" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <!-- ======== TOP NAVIGATION BAR (Teacher Version) ======== -->
+    <header class="top-nav">
+        <div class="nav-left">
+            <button id="menu-toggle" class="nav-icon-btn"><i class='bx bx-menu'></i></button>
+            <span class="logo-text"><i class='bx bxs-flask'></i> Exam Alchemy</span>
+        </div>
+        <div class="nav-right">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <button class="nav-icon-btn"><i class='bx bx-bell'></i></button>
+            <img src="https://i.pravatar.cc/150?img=12" alt="User Profile" class="profile-pic"> <!-- Teacher profile pic -->
+        </div>
+    </header>
+
+    <!-- ======== COLLAPSIBLE SIDEBAR (Teacher Version - Update Active Link) ======== -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <span class="logo-text-sidebar"><i class='bx bxs-flask'></i> Exam Alchemy</span>
+        </div>
+        <nav class="sidebar-nav">
+             <a href="dashboard.html" class="nav-item"> <!-- Link to Teacher Dashboard -->
+                <i class='bx bxs-dashboard'></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="#" class="nav-item"> <!-- Link to Upload -->
+                <i class='bx bx-upload'></i>
+                <span>Upload Question Bank</span>
+            </a>
+            <a href="#" class="nav-item"> <!-- Link to Generate -->
+                <i class='bx bx-atom'></i>
+                <span>Generate Paper</span>
+            </a>
+            <a href="#" class="nav-item"> <!-- Link to Extract -->
+                <i class='bx bx-scan'></i>
+                <span>AI Extract from PDF</span>
+            </a>
+            <a href="analytics.html" class="nav-item active"> <!-- Active -->
+                <i class='bx bx-bar-chart-alt-2'></i>
+                <span>View Analytics</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="index.html" class="nav-item">
+                <i class='bx bx-log-out'></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- ======== MAIN CONTENT AREA ======== -->
+    <main class="content" id="main-content">
+        
+        <!-- Page Header -->
+        <div class="page-header animate-fade-in">
+            <div>
+                <h1>Analytics Dashboard</h1>
+                <p class="text-muted mt-2">Track your exam statistics and performance</p>
+            </div>
+        </div>
+
+        <!-- Content Sections -->
+        <div class="analytics-content">
+
+            <!-- Summary Cards -->
+            <section class="grid grid-cols-3">
+                <div class="card summary-card animate-fade-up">
+                    <div class="card-header flex-row space-between pb-2">
+                        <h3 class="card-title-sm">Total Questions</h3>
+                        <i class='bx bxs-book-open text-primary card-header-icon'></i>
+                    </div>
+                    <div class="card-content">
+                        <div class="summary-value">1,234</div>
+                        <p class="summary-trend text-green">
+                            <i class='bx bx-up-arrow-alt'></i> +12%
+                            <span class="text-muted"> from last month</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="card summary-card animate-fade-up" style="animation-delay: 100ms;">
+                     <div class="card-header flex-row space-between pb-2">
+                        <h3 class="card-title-sm">Papers Generated</h3>
+                        <i class='bx bxs-file-blank text-primary card-header-icon'></i>
+                    </div>
+                    <div class="card-content">
+                        <div class="summary-value">45</div>
+                         <p class="summary-trend text-green">
+                            <i class='bx bx-up-arrow-alt'></i> +8%
+                            <span class="text-muted"> from last month</span>
+                        </p>
+                    </div>
+                </div>
+                 <div class="card summary-card animate-fade-up" style="animation-delay: 200ms;">
+                     <div class="card-header flex-row space-between pb-2">
+                        <h3 class="card-title-sm">Subjects Covered</h3>
+                        <i class='bx bxs-target-lock text-primary card-header-icon'></i>
+                    </div>
+                    <div class="card-content">
+                        <div class="summary-value">8</div>
+                        <p class="summary-trend text-muted">Active subjects</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Charts -->
+            <section class="grid grid-cols-2">
+                <div class="card animate-fade-up" style="animation-delay: 300ms;">
+                    <div class="card-header">
+                        <h2 class="card-title">Difficulty Distribution</h2>
+                        <p class="text-muted text-sm">Question difficulty breakdown</p>
+                    </div>
+                    <div class="card-content space-y-4">
+                        <!-- Easy -->
+                        <div>
+                             <div class="flex-between mb-2">
+                                <span class="text-sm font-medium">Easy</span>
+                                <span class="text-sm text-muted">370 questions</span>
+                            </div>
+                            <div class="progress-bar-container bg-secondary">
+                                <div class="progress-bar bg-green" style="width: 30%;"></div>
+                            </div>
+                        </div>
+                        <!-- Medium -->
+                        <div>
+                             <div class="flex-between mb-2">
+                                <span class="text-sm font-medium">Medium</span>
+                                <span class="text-sm text-muted">617 questions</span>
+                            </div>
+                            <div class="progress-bar-container bg-secondary">
+                                <div class="progress-bar bg-yellow" style="width: 50%;"></div>
+                            </div>
+                        </div>
+                         <!-- Hard -->
+                        <div>
+                             <div class="flex-between mb-2">
+                                <span class="text-sm font-medium">Hard</span>
+                                <span class="text-sm text-muted">247 questions</span>
+                            </div>
+                            <div class="progress-bar-container bg-secondary">
+                                <div class="progress-bar bg-red" style="width: 20%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card animate-fade-up" style="animation-delay: 400ms;">
+                    <div class="card-header">
+                        <h2 class="card-title">Subject Coverage</h2>
+                        <p class="text-muted text-sm">Questions per subject</p>
+                    </div>
+                    <div class="card-content space-y-4">
+                        <!-- Subject 1 -->
+                        <div>
+                            <div class="flex-between mb-2">
+                                <span class="text-sm font-medium">Mathematics</span>
+                                <span class="text-sm text-muted">345 questions</span>
+                            </div>
+                            <div class="progress-bar-container bg-secondary">
+                                <div class="progress-bar bg-primary" style="width: 28%;"></div>
+                            </div>
+                        </div>
+                         <!-- Subject 2 -->
+                        <div>
+                            <div class="flex-between mb-2">
+                                <span class="text-sm font-medium">Physics</span>
+                                <span class="text-sm text-muted">267 questions</span>
+                            </div>
+                            <div class="progress-bar-container bg-secondary">
+                                <div class="progress-bar bg-primary" style="width: 22%;"></div>
+                            </div>
+                        </div>
+                         <!-- Subject 3 -->
+                        <div>
+                            <div class="flex-between mb-2">
+                                <span class="text-sm font-medium">Chemistry</span>
+                                <span class="text-sm text-muted">234 questions</span>
+                            </div>
+                            <div class="progress-bar-container bg-secondary">
+                                <div class="progress-bar bg-primary" style="width: 19%;"></div>
+                            </div>
+                        </div>
+                         <!-- Subject 4 -->
+                        <div>
+                            <div class="flex-between mb-2">
+                                <span class="text-sm font-medium">Computer Science</span>
+                                <span class="text-sm text-muted">388 questions</span>
+                            </div>
+                            <div class="progress-bar-container bg-secondary">
+                                <div class="progress-bar bg-primary" style="width: 31%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+             <!-- Recent Activity -->
+            <section class="animate-fade-up" style="animation-delay: 500ms;">
+                 <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Recent Activity</h2>
+                        <p class="text-muted text-sm">Your latest actions</p>
+                    </div>
+                    <div class="card-content space-y-4">
+                        <!-- Activity Item 1 -->
+                        <div class="activity-item">
+                             <div class="card-icon-bg bg-primary-light">
+                                <i class='bx bxs-file-blank text-primary activity-icon'></i>
+                            </div>
+                             <div class="activity-details">
+                                <p class="text-sm font-medium">Generated paper for Mathematics Final Exam</p>
+                                <p class="text-xs text-muted">2 hours ago</p>
+                            </div>
+                        </div>
+                         <!-- Activity Item 2 -->
+                        <div class="activity-item">
+                             <div class="card-icon-bg bg-primary-light">
+                                <i class='bx bx-upload text-primary activity-icon'></i>
+                            </div>
+                             <div class="activity-details">
+                                <p class="text-sm font-medium">Uploaded 50 new questions to Physics bank</p>
+                                <p class="text-xs text-muted">5 hours ago</p>
+                            </div>
+                        </div>
+                         <!-- Activity Item 3 -->
+                        <div class="activity-item">
+                             <div class="card-icon-bg bg-primary-light">
+                                <i class='bx bxs-magic-wand text-primary activity-icon'></i> <!-- Using magic wand for sparkles -->
+                            </div>
+                             <div class="activity-details">
+                                <p class="text-sm font-medium">Extracted questions from Chemistry PDF</p>
+                                <p class="text-xs text-muted">1 day ago</p>
+                            </div>
+                        </div>
+                        <!-- Activity Item 4 -->
+                        <div class="activity-item">
+                             <div class="card-icon-bg bg-primary-light">
+                                <i class='bx bxs-file-blank text-primary activity-icon'></i>
+                            </div>
+                             <div class="activity-details">
+                                <p class="text-sm font-medium">Created Computer Science mid-term paper</p>
+                                <p class="text-xs text-muted">2 days ago</p>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Link your main JavaScript file (for sidebar toggle) -->
+    <script src="scripts/main.js"></script>
+    <!-- Optional: Add Chart.js script if you want dynamic charts -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+    <!-- <script src="scripts/analytics.js"></script> -->
+</body>
+</html>

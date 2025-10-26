@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Test - Exam Alchemy</title>
+    <!-- Link to your existing CSS file -->
+    <link rel="stylesheet" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <!-- ======== TOP NAVIGATION BAR (Same as student.html) ======== -->
+    <header class="top-nav">
+        <div class="nav-left">
+            <button id="menu-toggle" class="nav-icon-btn"><i class='bx bx-menu'></i></button>
+            <span class="logo-text"><i class='bx bxs-flask'></i> Exam Alchemy</span>
+        </div>
+        <div class="nav-right">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <button class="nav-icon-btn"><i class='bx bx-bell'></i></button>
+            <img src="https://i.pravatar.cc/150?img=3" alt="User Profile" class="profile-pic">
+        </div>
+    </header>
+
+    <!-- ======== COLLAPSIBLE SIDEBAR (Student Version - Update Active Link) ======== -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <span class="logo-text-sidebar"><i class='bx bxs-flask'></i> Exam Alchemy</span>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="student.html" class="nav-item">
+                <i class='bx bxs-dashboard'></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class='bx bxs-book-open'></i>
+                <span>Previous Year Questions</span>
+            </a>
+            <a href="papers.html" class="nav-item">
+                <i class='bx bxs-file-blank'></i>
+                <span>Sample Papers</span>
+            </a>
+            <a href="tests.html" class="nav-item active"> <!-- Active -->
+                <i class='bx bx-clipboard'></i>
+                <span>Practice Tests</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="index.html" class="nav-item">
+                <i class='bx bx-log-out'></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- ======== MAIN CONTENT AREA ======== -->
+    <main class="content" id="main-content">
+
+        <!-- Test View (Visible initially) -->
+        <div id="test-view" class="test-view animate-fade-in">
+            <!-- Test Header -->
+            <div class="page-header flex-between items-start">
+                <div>
+                    <h1>Mathematics Practice Test</h1>
+                    <p class="text-muted mt-2">Answer all questions to complete the test</p>
+                </div>
+                <div class="card timer-card">
+                    <div class="flex-gap">
+                        <i class='bx bxs-time-five text-primary'></i>
+                        <div>
+                            <p class="timer-time">45:23</p>
+                            <p class="timer-label">Time Remaining</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress -->
+            <div class="card progress-card animate-fade-up">
+                <div class="card-content pt-0">
+                    <div class="progress-info">
+                        <span class="font-semibold">Progress</span>
+                        <span class="text-muted text-sm" id="question-counter">Question 1 of 5</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="progress-bar" style="width: 20%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question Card -->
+            <div class="card question-card animate-fade-up" style="animation-delay: 100ms;">
+                <div class="card-header">
+                    <h2 class="card-title" id="question-number">Question 1</h2>
+                    <p class="text-muted text-sm">Select the correct answer</p>
+                </div>
+                <div class="card-content space-y-6">
+                    <div class="question-text" id="question-text">
+                        What is the derivative of x²?
+                    </div>
+
+                    <!-- Options -->
+                    <div class="options-group" id="options-container">
+                        <!-- Options will be loaded by JavaScript -->
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <div class="flex-gap">
+                        <button class="btn btn-outline" id="prev-button" disabled>
+                            Previous
+                        </button>
+                        <button class="btn btn-primary btn-glow flex-1" id="next-button">
+                            Next Question
+                        </button>
+                        <button class="btn btn-primary btn-glow flex-1" id="submit-button" style="display: none;">
+                            Submit Test
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results View (Hidden initially) -->
+        <div id="results-view" class="results-view animate-fade-in" style="display: none;">
+            <div class="card text-center">
+                <div class="card-header">
+                     <div class="results-icon-wrapper">
+                         <i class='bx bxs-check-circle text-primary'></i>
+                     </div>
+                    <h2 class="card-title text-3xl">Test Completed!</h2>
+                    <p class="text-muted">Great job! Here are your results</p>
+                </div>
+                <div class="card-content space-y-6">
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="result-box bg-green-light">
+                            <p class="result-value text-green">4</p>
+                            <p class="result-label">Correct</p>
+                        </div>
+                        <div class="result-box bg-red-light">
+                            <p class="result-value text-red">1</p>
+                            <p class="result-label">Incorrect</p>
+                        </div>
+                        <div class="result-box bg-primary-light">
+                            <p class="result-value text-primary">80%</p>
+                            <p class="result-label">Score</p>
+                        </div>
+                    </div>
+                    <div class="flex-gap">
+                        <button class="btn btn-outline flex-1">
+                            Review Answers
+                        </button>
+                        <button class="btn btn-primary btn-glow flex-1" onclick="window.location.reload()">
+                            Retry Test
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Link JS files -->
+    <script src="scripts/main.js"></script> <!-- Sidebar toggle -->
+    <script src="scripts/test.js"></script> <!-- Test logic -->
+</body>
+</html>

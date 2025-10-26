@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Exam Alchemy</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <!-- ======== TOP NAVIGATION BAR ======== -->
+    <header class="top-nav">
+        <div class="nav-left">
+            <button id="menu-toggle" class="nav-icon-btn"><i class='bx bx-menu'></i></button>
+            <span class="logo-text"><i class='bx bxs-flask'></i> Exam Alchemy</span>
+        </div>
+        <div class="nav-right">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <button class="nav-icon-btn"><i class='bx bx-bell'></i></button>
+            <!-- Teacher Profile Pic -->
+            <img src="https://i.pravatar.cc/150?img=12" alt="User Profile" class="profile-pic">
+        </div>
+    </header>
+
+    <!-- ======== COLLAPSIBLE SIDEBAR (Teacher) ======== -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <span class="logo-text-sidebar"><i class='bx bxs-flask'></i> Exam Alchemy</span>
+        </div>
+        <nav class="sidebar-nav">
+            <!-- Link to Teacher Dashboard (This page) -->
+            <a href="dashboard.html" class="nav-item active">
+                <i class='bx bxs-dashboard'></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="#" class="nav-item"> <!-- Link to Upload page later -->
+                <i class='bx bx-upload'></i>
+                <span>Upload Question Bank</span>
+            </a>
+            <a href="#" class="nav-item"> <!-- Link to Generate page later -->
+                <i class='bx bx-atom'></i>
+                <span>Generate Paper</span>
+            </a>
+            <a href="#" class="nav-item"> <!-- Link to Extract page later -->
+                <i class='bx bx-scan'></i>
+                <span>AI Extract from PDF</span>
+            </a>
+            <a href="analytics.html" class="nav-item"> <!-- Link to Analytics page -->
+                <i class='bx bx-bar-chart-alt-2'></i>
+                <span>View Analytics</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <!-- Logout link points back to landing page -->
+            <a href="index.html" class="nav-item">
+                <i class='bx bx-log-out'></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+
+<!-- ... existing <head>, <header>, <aside> ... -->
+
+<!-- ======== MAIN CONTENT AREA ======== -->
+<main class="content" id="main-content">
+    
+    <!-- Page Header -->
+    <div class="page-header animate-fade-in">
+        <div>
+            <h1 class="text-3xl font-bold tracking-tight">Welcome back, Professor! 👋</h1>
+            <p class="text-muted mt-2">Here's what's happening with your exams today.</p>
+        </div>
+        <div class="header-actions">
+            <a href="index.html" class="btn btn-secondary"><i class='bx bx-log-out'></i> Logout</a>
+        </div>
+    </div>
+
+    <!-- Content Sections -->
+    <div class="dashboard-content">
+
+        <!-- Stats Cards -->
+        <section class="grid grid-cols-3">
+            <!-- Card 1: Total Questions -->
+            <div class="card card-hover animate-fade-up" style="animation-delay: 0ms;">
+                <div class="card-header flex-row space-between pb-2">
+                    <h3 class="card-title-sm text-muted">Total Questions</h3>
+                    <i class='bx bxs-file-blank text-primary card-header-icon'></i>
+                </div>
+                <div class="card-content">
+                    <div class="summary-value">1,234</div> <!-- Placeholder -->
+                    <p class="summary-trend text-muted text-xs mt-1">In question bank</p>
+                </div>
+            </div>
+
+            <!-- Card 2: Papers Generated -->
+            <div class="card card-hover animate-fade-up" style="animation-delay: 100ms;">
+                <div class="card-header flex-row space-between pb-2">
+                    <h3 class="card-title-sm text-muted">Papers Generated</h3>
+                    <i class='bx bxs-magic-wand text-primary card-header-icon'></i> <!-- Sparkles icon -->
+                </div>
+                <div class="card-content">
+                    <div class="summary-value">45</div> <!-- Placeholder -->
+                    <p class="summary-trend text-muted text-xs mt-1">This semester</p>
+                </div>
+            </div>
+
+            <!-- Card 3: Subjects Covered -->
+            <div class="card card-hover animate-fade-up" style="animation-delay: 200ms;">
+                <div class="card-header flex-row space-between pb-2">
+                    <h3 class="card-title-sm text-muted">Subjects Covered</h3>
+                    <i class='bx bxs-dashboard text-primary card-header-icon'></i> <!-- Dashboard icon -->
+                </div>
+                <div class="card-content">
+                    <div class="summary-value">8</div> <!-- Placeholder -->
+                    <p class="summary-trend text-muted text-xs mt-1">Active subjects</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Actions -->
+        <section>
+            <h2 class="section-title-md">Quick Actions</h2>
+            <div class="grid grid-cols-2">
+                <!-- Action 1: Upload -->
+                <a href="#" class="quick-link-card-link"> <!-- Link to Upload -->
+                    <div class="card card-hover cursor-pointer h-full animate-fade-up" style="animation-delay: 300ms;">
+                        <div class="card-header">
+                            <div class="card-icon-wrapper">
+                                <div class="card-icon-bg bg-primary-light">
+                                    <i class='bx bx-upload text-primary'></i>
+                                </div>
+                                <div>
+                                    <h3 class="card-title-lg">Upload Question Bank</h3>
+                                    <p class="text-muted text-sm">Add questions via file upload</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Action 2: Generate -->
+                <a href="#" class="quick-link-card-link"> <!-- Link to Generate -->
+                     <div class="card card-hover cursor-pointer h-full animate-fade-up" style="animation-delay: 400ms;">
+                        <div class="card-header">
+                            <div class="card-icon-wrapper">
+                                <div class="card-icon-bg bg-primary-light">
+                                    <i class='bx bxs-file-blank text-primary'></i>
+                                </div>
+                                <div>
+                                    <h3 class="card-title-lg">Generate Paper</h3>
+                                    <p class="text-muted text-sm">Create a new exam paper</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Action 3: AI Extract -->
+                 <a href="extract.html" class="quick-link-card-link"> <!-- Link to Extract -->
+                     <div class="card card-hover cursor-pointer h-full animate-fade-up" style="animation-delay: 500ms;">
+                        <div class="card-header">
+                            <div class="card-icon-wrapper">
+                                <div class="card-icon-bg bg-primary-light">
+                                    <i class='bx bxs-magic-wand text-primary'></i> <!-- Sparkles icon -->
+                                </div>
+                                <div>
+                                    <h3 class="card-title-lg">AI Extract from PDF</h3>
+                                    <p class="text-muted text-sm">Extract questions using AI</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                 <!-- Action 4: Analytics -->
+                <a href="analytics.html" class="quick-link-card-link"> <!-- Link to Analytics -->
+                     <div class="card card-hover cursor-pointer h-full animate-fade-up" style="animation-delay: 600ms;">
+                        <div class="card-header">
+                            <div class="card-icon-wrapper">
+                                <div class="card-icon-bg bg-primary-light">
+                                    <i class='bx bx-bar-chart-alt-2 text-primary'></i>
+                                </div>
+                                <div>
+                                    <h3 class="card-title-lg">View Analytics</h3>
+                                    <p class="text-muted text-sm">Check performance metrics</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </div>
+
+</main>
+
+<!-- Link JS Files -->
+<script src="scripts/api.js"></script> <!-- Needed if dashboard makes API calls -->
+<script src="scripts/main.js"></script> <!-- For sidebar toggle -->
+</body>
+</html>
+

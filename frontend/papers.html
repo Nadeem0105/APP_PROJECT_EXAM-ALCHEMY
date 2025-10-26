@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Papers - Exam Alchemy</title>
+    <!-- Link to your existing CSS file -->
+    <link rel="stylesheet" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <!-- ======== TOP NAVIGATION BAR (Same as student.html) ======== -->
+    <header class="top-nav">
+        <div class="nav-left">
+            <button id="menu-toggle" class="nav-icon-btn"><i class='bx bx-menu'></i></button>
+            <span class="logo-text"><i class='bx bxs-flask'></i> Exam Alchemy</span>
+        </div>
+        <div class="nav-right">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <button class="nav-icon-btn"><i class='bx bx-bell'></i></button>
+            <img src="https://i.pravatar.cc/150?img=3" alt="User Profile" class="profile-pic">
+        </div>
+    </header>
+
+    <!-- ======== COLLAPSIBLE SIDEBAR (Student Version - Update Active Link) ======== -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <span class="logo-text-sidebar"><i class='bx bxs-flask'></i> Exam Alchemy</span>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="student.html" class="nav-item"> <!-- Not active -->
+                <i class='bx bxs-dashboard'></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="#" class="nav-item"> <!-- Link to PYQ page later -->
+                <i class='bx bxs-book-open'></i>
+                <span>Previous Year Questions</span>
+            </a>
+            <a href="papers.html" class="nav-item active"> <!-- Active -->
+                <i class='bx bxs-file-blank'></i>
+                <span>Sample Papers</span>
+            </a>
+            <a href="#" class="nav-item"> <!-- Link to Tests page later -->
+                <i class='bx bx-clipboard'></i>
+                <span>Practice Tests</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="index.html" class="nav-item">
+                <i class='bx bx-log-out'></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- ======== MAIN CONTENT AREA ======== -->
+    <main class="content" id="main-content">
+        
+        <!-- Page Header -->
+        <div class="page-header animate-fade-in">
+            <div>
+                <h1>Sample Papers</h1>
+                <p class="text-muted mt-2">Practice with curated exam papers</p>
+            </div>
+        </div>
+
+        <!-- Content Sections -->
+        <div class="papers-page-content">
+
+            <!-- Search Bar -->
+            <section class="animate-fade-up">
+                <div class="card">
+                    <div class="card-content pt-0"> <!-- Remove card padding top -->
+                       <div class="search-bar-wrapper">
+                            <div class="search-input-group">
+                                <i class='bx bx-search search-icon'></i>
+                                <input type="text" placeholder="Search papers by subject or title..." class="search-input">
+                            </div>
+                            <button class="btn btn-primary">Search</button>
+                       </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Papers Grid -->
+            <section>
+                <div class="grid grid-cols-2">
+                    <!-- Paper Card 1 -->
+                    <div class="card card-hover animate-fade-up" style="animation-delay: 0ms;">
+                        <div class="card-header">
+                            <div class="flex-between items-start">
+                                <div>
+                                    <h3 class="card-title-lg">Mathematics Final Exam 2024</h3>
+                                    <p class="text-muted text-sm">Mathematics</p>
+                                </div>
+                                <div class="card-icon-bg bg-primary-light">
+                                    <i class='bx bxs-file-blank text-primary'></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-content space-y-4">
+                            <div class="grid grid-cols-3 gap-2 text-sm">
+                                <div class="info-box">
+                                    <p class="font-semibold">100</p>
+                                    <p class="text-xs text-muted">Marks</p>
+                                </div>
+                                <div class="info-box">
+                                    <p class="font-semibold">3h</p>
+                                    <p class="text-xs text-muted">Duration</p>
+                                </div>
+                                <div class="info-box">
+                                    <p class="font-semibold">40</p>
+                                    <p class="text-xs text-muted">Questions</p>
+                                </div>
+                            </div>
+                            <div class="flex-gap">
+                                <button class="btn btn-primary btn-glow flex-1">
+                                    <i class='bx bx-play'></i> Attempt
+                                </button>
+                                <button class="btn btn-outline flex-1">
+                                    <i class='bx bx-download'></i> Download
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Paper Card 2 -->
+                    <div class="card card-hover animate-fade-up" style="animation-delay: 100ms;">
+                         <div class="card-header">
+                            <div class="flex-between items-start">
+                                <div>
+                                    <h3 class="card-title-lg">Physics Mid-term 2024</h3>
+                                    <p class="text-muted text-sm">Physics</p>
+                                </div>
+                                <div class="card-icon-bg bg-primary-light">
+                                    <i class='bx bxs-file-blank text-primary'></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-content space-y-4">
+                            <div class="grid grid-cols-3 gap-2 text-sm">
+                                <div class="info-box">
+                                    <p class="font-semibold">50</p>
+                                    <p class="text-xs text-muted">Marks</p>
+                                </div>
+                                <div class="info-box">
+                                    <p class="font-semibold">2h</p>
+                                    <p class="text-xs text-muted">Duration</p>
+                                </div>
+                                <div class="info-box">
+                                    <p class="font-semibold">25</p>
+                                    <p class="text-xs text-muted">Questions</p>
+                                </div>
+                            </div>
+                            <div class="flex-gap">
+                                <button class="btn btn-primary btn-glow flex-1">
+                                    <i class='bx bx-play'></i> Attempt
+                                </button>
+                                <button class="btn btn-outline flex-1">
+                                    <i class='bx bx-download'></i> Download
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Paper Card 3 -->
+                     <div class="card card-hover animate-fade-up" style="animation-delay: 200ms;">
+                         <div class="card-header">
+                            <div class="flex-between items-start">
+                                <div>
+                                    <h3 class="card-title-lg">Chemistry Practice Set 1</h3>
+                                    <p class="text-muted text-sm">Chemistry</p>
+                                </div>
+                                <div class="card-icon-bg bg-primary-light">
+                                    <i class='bx bxs-file-blank text-primary'></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-content space-y-4">
+                            <div class="grid grid-cols-3 gap-2 text-sm">
+                                <div class="info-box">
+                                    <p class="font-semibold">75</p>
+                                    <p class="text-xs text-muted">Marks</p>
+                                </div>
+                                <div class="info-box">
+                                    <p class="font-semibold">2.5h</p>
+                                    <p class="text-xs text-muted">Duration</p>
+                                </div>
+                                <div class="info-box">
+                                    <p class="font-semibold">30</p>
+                                    <p class="text-xs text-muted">Questions</p>
+                                </div>
+                            </div>
+                            <div class="flex-gap">
+                                <button class="btn btn-primary btn-glow flex-1">
+                                    <i class='bx bx-play'></i> Attempt
+                                </button>
+                                <button class="btn btn-outline flex-1">
+                                    <i class='bx bx-download'></i> Download
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Paper Card 4 -->
+                     <div class="card card-hover animate-fade-up" style="animation-delay: 300ms;">
+                         <div class="card-header">
+                            <div class="flex-between items-start">
+                                <div>
+                                    <h3 class="card-title-lg">Computer Science Mock Test</h3>
+                                    <p class="text-muted text-sm">CS</p>
+                                </div>
+                                <div class="card-icon-bg bg-primary-light">
+                                    <i class='bx bxs-file-blank text-primary'></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-content space-y-4">
+                            <div class="grid grid-cols-3 gap-2 text-sm">
+                                <div class="info-box">
+                                    <p class="font-semibold">100</p>
+                                    <p class="text-xs text-muted">Marks</p>
+                                </div>
+                                <div class="info-box">
+                                    <p class="font-semibold">3h</p>
+                                    <p class="text-xs text-muted">Duration</p>
+                                </div>
+                                <div class="info-box">
+                                    <p class="font-semibold">50</p>
+                                    <p class="text-xs text-muted">Questions</p>
+                                </div>
+                            </div>
+                            <div class="flex-gap">
+                                <button class="btn btn-primary btn-glow flex-1">
+                                    <i class='bx bx-play'></i> Attempt
+                                </button>
+                                <button class="btn btn-outline flex-1">
+                                    <i class='bx bx-download'></i> Download
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add more paper cards as needed -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Link your main JavaScript file (for sidebar toggle) -->
+    <script src="scripts/main.js"></script>
+</body>
+</html>
