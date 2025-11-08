@@ -24,7 +24,8 @@
 ## 🖼️ Screenshots / Demo
 | Interface | Output |
 |----------|--------|
-| ![UI Screenshot](add_link_here) | ![Generated Paper](add_link_here) |
+
+<img width="1898" height="871" alt="image" src="https://github.com/user-attachments/assets/8f8b82f2-7bcd-4f78-87ff-987b8823254f" />
 
 > Replace `add_link_here` with actual image links or upload images to GitHub.
 
@@ -36,3 +37,4 @@
 ```bash
 git clone https://github.com/your-username/Exam-Alchemy.git
 cd Exam-Alchemy
+
