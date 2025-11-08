@@ -87,25 +87,29 @@ document.addEventListener("DOMContentLoaded", function() {
                     throw new Error("loginUser function is not loaded correctly. Check api.js.");
                 }
 
-                const data = await loginUser(email, password); // From api.js
+                const data = await loginUser(email, password);
                 
                 if (data.token) {
                     localStorage.setItem('authToken', data.token);
+                    localStorage.setItem('userRole', data.roles[0]); // Store the first role
+                    localStorage.setItem('userEmail', email);
+                    
+                    console.log('Login successful:', data);
+                    alert('Login successful! Redirecting to dashboard...');
+                    
+                    // Redirect to the correct dashboard based on the role from the server
+                    if (data.roles.includes('ROLE_TEACHER')) {
+                        window.location.href = 'dashboard.html';
+                    } else {
+                        window.location.href = 'student.html';
+                    }
                 }
-                
-                alert('Login successful! Redirecting to dashboard...');
-                
-                // Redirect to the correct dashboard based on role
-                if (selectedRole === 'teacher') {
-                    window.location.href = 'dashboard.html'; // Or teacher-dashboard.html
-                } else {
-                    window.location.href = 'student.html'; // Or student-dashboard.html
-                }
-
             } catch (error) {
-                console.error('Login Error:', error);
-                alert('Login failed: ' + error.message);
-                 if (loginButton) { // Add null check
+                console.error("Login error:", error);
+                alert('Login failed: ' + (error.message || 'Unknown error occurred'));
+            } finally {
+                // Re-enable button if it exists
+                if (loginButton) {
                     loginButton.disabled = false;
                     loginButton.textContent = 'Sign In';
                 }
@@ -147,10 +151,12 @@ document.addEventListener("DOMContentLoaded", function() {
             // Format roles for the backend
             const roles = new Set();
             if (selectedRole === 'teacher') {
-                roles.add('TEACHER');
+                roles.add('ROLE_TEACHER');
             } else {
-                roles.add('STUDENT');
+                roles.add('ROLE_STUDENT');
             }
+            
+            console.log('Registering user with roles:', Array.from(roles));
 
             try {
                  // Check if registerUser function exists before calling

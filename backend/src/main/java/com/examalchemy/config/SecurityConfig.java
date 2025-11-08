@@ -40,18 +40,25 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-            .cors(cors -> {}) // This will use your WebConfig
-            .csrf(csrf -> csrf.disable()) // Disable CSRF
-            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // Use stateless sessions
-            .authorizeHttpRequests(authz -> authz
-                // --- Public Endpoints ---
-                .requestMatchers("/api/auth/**").permitAll() // Allow all auth requests
-                .requestMatchers("/api/test/public").permitAll()
-                
-                // --- Private Endpoints ---
-                .anyRequest().authenticated() // All other requests must be authenticated
+            .cors(cors -> cors.configurationSource(request -> {
+                var corsConfig = new org.springframework.web.cors.CorsConfiguration();
+                corsConfig.setAllowedOrigins(java.util.Arrays.asList("http://localhost:3000", "http://localhost:3001"));
+                corsConfig.setAllowedMethods(java.util.Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+                corsConfig.setAllowedHeaders(java.util.Arrays.asList("*"));
+                corsConfig.setAllowCredentials(true);
+                return corsConfig;
+            }))
+            .csrf(csrf -> csrf.disable())  // Disable CSRF for REST API
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/api/auth/**").permitAll()
+                .requestMatchers("/api/test/**").permitAll()
+                .requestMatchers("/error").permitAll()
+                .anyRequest().authenticated()
+            )
+            .sessionManagement(session -> 
+                session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             );
-        
+
         // Add our custom JWT filter before the standard Spring filter
         http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 

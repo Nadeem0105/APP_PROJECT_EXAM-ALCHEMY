@@ -1,3 +1,5 @@
+const BASE_URL = 'http://localhost:8080';
+
 /**
  * Attempts to log in a user.
  * @param {string} email - The user's email.
@@ -5,7 +7,8 @@
  * @returns {Promise<object>} - The JSON response from the server.
  */
 async function loginUser(email, password) {
-    const response = await fetch('/api/auth/login', {
+    console.log('Attempting login with:', { email }); // Debug log
+    const response = await fetch(`${BASE_URL}/api/auth/login`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -39,9 +42,11 @@ async function loginUser(email, password) {
  * @returns {Promise<object>}
  */
 async function registerUser(username, email, password, roles) {
-    const response = await fetch('/api/auth/register', {
+    console.log('Attempting registration:', { username, email, roles }); // Debug log
+    const response = await fetch(`${BASE_URL}/api/auth/register`, {
         method: 'POST',
         headers: {
+            'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
